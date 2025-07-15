@@ -1,18 +1,16 @@
-#include <iostream>  // for std::cout and std::cin
+#include <iostream> // for std::cout and std::cin
 
+// Receives user input of 3 umbers
 int main()
 {
-    std::cout << "Enter two numbers: ";
+    int num{};
+    std::cout << "Enter an integer: ";
 
-    int x{};
-    std::cin >> x;
+    std::cin >> num;
 
-    std::cout << "Next number? ";
+    std::cout << "Double " << num << " is: " << num*2 << "\n";
 
-    int y{};
-    std::cin >> y;
-
-    std::cout << "You entered " << x << " and " << y << '\n';
+    std::cout << "Triple " << num << " is: " << num*3 << "\n";
 
     return 0;
 }
