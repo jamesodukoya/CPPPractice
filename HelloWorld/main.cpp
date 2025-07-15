@@ -3,14 +3,20 @@
 // Receives user input of 3 umbers
 int main()
 {
-    int num{};
+    
     std::cout << "Enter an integer: ";
 
-    std::cin >> num;
+    int firstNum{};
+    std::cin >> firstNum;
 
-    std::cout << "Double " << num << " is: " << num*2 << "\n";
+    std::cout << "Enter another integer: ";
 
-    std::cout << "Triple " << num << " is: " << num*3 << "\n";
+    int secondNum{};
+    std::cin >> secondNum;
+
+    std::cout << firstNum << " + " << secondNum << " is: " << firstNum + secondNum << "\n";
+
+    std::cout << firstNum << " - " << secondNum << " is: " << firstNum - secondNum << "\n";
 
     return 0;
 }
