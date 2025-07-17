@@ -15,7 +15,7 @@
                 "-Wsign-conversion",
                 "-Werror", // Treat all warnings as errors
                 "-std=c++20", // Set C++ standard
-                "${file}",
+                "${fileDirname}/*.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],

@@ -14,9 +14,9 @@ int main()
     int secondNum{};
     std::cin >> secondNum;
 
-    std::cout << firstNum << " + " << secondNum << " is: " << firstNum + secondNum << "\n";
+    std::cout << firstNum << " + " << secondNum << " is: " << firstNum + secondNum << ".\n";
 
-    std::cout << firstNum << " - " << secondNum << " is: " << firstNum - secondNum << "\n";
+    std::cout << firstNum << " - " << secondNum << " is: " << firstNum - secondNum << ".\n";
 
     return 0;
 }
