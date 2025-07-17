@@ -17,6 +17,7 @@
                 "-std=c++20", // Set C++ standard
                 "${fileDirname}/*.cpp",
                 "-o",
+                // "-I./source/includes",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
             "options": {

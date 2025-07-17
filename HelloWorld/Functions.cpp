@@ -1,17 +1,18 @@
 #include <iostream>
+#include "add.h"
 
-int getInteger();
+// int getInteger();
 
-int main()
-{
-	int x{ getInteger() };
-	int y{ getInteger() };
+// int main()
+// {
+// 	int x{ getInteger() };
+// 	int y{ getInteger() };
 
-	std::cout << x << " + " << y << " is " << x + y << '\n';
-	return 0;
-}
+// 	std::cout << x << " + " << y << " is " << x + y << '\n';
+// 	return 0;
+// }
 
-// int add(int x, int y);
+int add(int x, int y);
 
 // int main()
 // {
