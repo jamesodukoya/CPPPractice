@@ -2,6 +2,6 @@
 #define IO_H
 
 int readNumber();
-int writeAnswer(int ans);
+void writeAnswer(int ans);
 
 #endif
