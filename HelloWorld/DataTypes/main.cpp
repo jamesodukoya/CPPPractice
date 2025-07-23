@@ -7,13 +7,25 @@
 
 int main()
 {
-    std::cout << std::setprecision(17);
 
-    std::cout << 9.87654321 << '\n';
-    std::cout << 987.654321f << '\n';
-    std::cout << 987654.321f << '\n';
-    std::cout << 9876543.21f << '\n';
-    std::cout << 0.0000987654321f << '\n';
+    std::cout << std::boolalpha; // print bools as true or false
+
+	bool b1 = 4 ; // copy initialization allows implicit conversion from int to bool
+	std::cout << b1 << '\n';
+
+	bool b2 = 0 ; // copy initialization allows implicit conversion from int to bool
+	std::cout << b2 << '\n';
+
+    // double x{+150.0/0.0};
+    // std::cout << x << '\n';
+
+    // std::cout << std::setprecision(17);
+
+    // std::cout << 9.87654321 << '\n';
+    // std::cout << 987.654321f << '\n';
+    // std::cout << 987654.321f << '\n';
+    // std::cout << 9876543.21f << '\n';
+    // std::cout << 0.0000987654321f << '\n';
 
     // std::cout << std::boolalpha; // print bool as true or false rather than 1 or 0
     // std::cout << "float: " << std::numeric_limits<float>::is_iec559 << '\n';
