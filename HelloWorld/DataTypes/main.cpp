@@ -8,13 +8,23 @@
 int main()
 {
 
-    std::cout << std::boolalpha; // print bools as true or false
+    std::cout << "Enter a number 0 through 9 (inclusive): ";
+    int x{};
+    std::cin >> x;
+    if (x == 2 || x == 3 || x == 5 || x == 7)
+        std::cout << "The digit is prime!\n";
+    // else if (x<0)
+    //     std::cout << "The value is negative!\n";
+    else
+        std::cout << "The digit is not prime!\n";
 
-	bool b1 = 4 ; // copy initialization allows implicit conversion from int to bool
-	std::cout << b1 << '\n';
+    // std::cout << std::boolalpha; // print bools as true or false
 
-	bool b2 = 0 ; // copy initialization allows implicit conversion from int to bool
-	std::cout << b2 << '\n';
+    // bool b1 = 4 ; // copy initialization allows implicit conversion from int to bool
+    // std::cout << b1 << '\n';
+
+    // bool b2 = 0 ; // copy initialization allows implicit conversion from int to bool
+    // std::cout << b2 << '\n';
 
     // double x{+150.0/0.0};
     // std::cout << x << '\n';
