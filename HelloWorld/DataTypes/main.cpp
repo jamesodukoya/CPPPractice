@@ -11,48 +11,81 @@
 
 // If you want to ensure that a std::int8_t or std::uint8_t object is treated as an integer, you can convert the value to an integer using static_cast:
 
-double getNumber()
+// double getNumber()
+// {
+//     std::cout << "Enter a double value: ";
+
+//     double num{};
+//     std::cin >> num;
+
+//     return num;
+// }
+
+// char getOperator()
+// {
+//     std::cout << "Enter +, -, *, or /: ";
+
+//     char oper{};
+//     std::cin >> oper;
+
+//     return oper;
+// }
+
+// void printResult(double firstNum, double secondNum, char sym)
+// {
+//     if (sym == '+')
+//         std::cout << firstNum << " " << sym << " " << secondNum  << " is " << firstNum+secondNum << '\n';
+//     else if (sym == '-')
+//         std::cout << firstNum << " " << sym << " " << secondNum  << " is " << firstNum-secondNum << '\n';
+//     else if (sym == '*')
+//         std::cout << firstNum << " " << sym << " " << secondNum  << " is " << firstNum*secondNum << '\n';
+//     else if (sym == '/')
+//         std::cout << firstNum << " " << sym << " " << secondNum  << " is " << firstNum/secondNum << '\n';
+// }
+
+float getHeight()
 {
-    std::cout << "Enter a double value: ";
+    std::cout << "Enter the height of the tower in meters: ";
+    float height{};
+    std::cin >> height;
 
-    double num{};
-    std::cin >> num;
-
-    return num;
+    return height;
 }
 
-char getOperator()
+float calcHeight(float height, int time)
 {
-    std::cout << "Enter +, -, *, or /: ";
-
-    char oper{};
-    std::cin >> oper;
-
-    return oper;
+    float gravity{9.8f};
+    float time_sec{static_cast<float>(time)};
+    float presentHeight{height - (gravity * time_sec * time_sec / 2.0f)};
+    return presentHeight;
 }
-
-void printResult(double firstNum, double secondNum, char sym)
-{
-    if (sym == '+')
-        std::cout << firstNum << " " << sym << " " << secondNum  << " is " << firstNum+secondNum << '\n';
-    else if (sym == '-')
-        std::cout << firstNum << " " << sym << " " << secondNum  << " is " << firstNum-secondNum << '\n';
-    else if (sym == '*')
-        std::cout << firstNum << " " << sym << " " << secondNum  << " is " << firstNum*secondNum << '\n';
-    else if (sym == '/')
-        std::cout << firstNum << " " << sym << " " << secondNum  << " is " << firstNum/secondNum << '\n';
-}
-
 
 int main()
 {
 
-    double x{getNumber()};
-    double y{getNumber()};
+    float height{getHeight()};
 
-    char z {getOperator()};
+    for (int time = 0; time < 6; time++)
+    {
+        float presentHeight{calcHeight(height, time)};
 
-    printResult(x,y,z);
+        if (presentHeight > 0)
+        {
+            std::cout << "At " << time << " seconds, the ball is at height: " << presentHeight << "meters\n";
+        }
+        else
+        {
+            std::cout << "At " << time << " seconds, the ball is on the ground.\n";
+            break;
+        }
+    }
+
+    // double x{getNumber()};
+    // double y{getNumber()};
+
+    // char z {getOperator()};
+
+    // printResult(x,y,z);
 
     // std::cout << "Enter a single character: ";
 
@@ -63,12 +96,10 @@ int main()
 
     // std::cout << "You entered \'" << ch << "\', which has ASCII code " << i << ".\n";
 
-
     // int8_t newInt{};
     // std::cin >> newInt; // I enter 35
 
     // std::cout << newInt << '\n'; // Prints 51 (tutorial said it was meant to. But turns out it didn't): equivalent of '3'
-
 
     // int s { -1 };
     // std::cout << static_cast<unsigned int>(s) << '\n'; // prints 4294967295
