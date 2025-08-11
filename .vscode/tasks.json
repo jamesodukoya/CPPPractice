@@ -14,7 +14,7 @@
                 "-Wconversion",
                 "-Wsign-conversion",
                 "-Werror", // Treat all warnings as errors
-                "-std=c++20", // Set C++ standard
+                "-std=c++23", // Set C++ standard
                 "${fileDirname}/*.cpp",
                 "-o",
                 // "-I./source/includes",
