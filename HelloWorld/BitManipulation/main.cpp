@@ -1,24 +1,70 @@
 #include <bitset> // for std::bitset
 #include <iostream>
+#include <cstdint>
+
 
 [[maybe_unused]] constexpr std::bitset<8> mybitset{}; // 8 bits in size means room for 8 flags
 
 // "rotl" stands for "rotate left"
 std::bitset<4> rotl(std::bitset<4> bits)
 {
-    std::bitset<4> newbits{(bits << 1)|(bits>>3)};
+    std::bitset<4> newbits{(bits << 1) | (bits >> 3)};
     return newbits;
 }
 
 int main()
 {
+    [[maybe_unused]] constexpr std::uint8_t mask0{0b0000'0001}; // represents bit 0
+    [[maybe_unused]] constexpr std::uint8_t mask1{0b0000'0010}; // represents bit 1
+    [[maybe_unused]] constexpr std::uint8_t mask2{0b0000'0100}; // represents bit 2
+    [[maybe_unused]] constexpr std::uint8_t mask3{0b0000'1000}; // represents bit 3
+    [[maybe_unused]] constexpr std::uint8_t mask4{0b0001'0000}; // represents bit 4
+    [[maybe_unused]] constexpr std::uint8_t mask5{0b0010'0000}; // represents bit 5
+    [[maybe_unused]] constexpr std::uint8_t mask6{0b0100'0000}; // represents bit 6
+    [[maybe_unused]] constexpr std::uint8_t mask7{0b1000'0000}; // represents bit 7
+
+    // To reset (clear) a bit (to value 0), we use Bitwise AND and Bitwise NOT together
+    std::uint8_t flags{ 0b0011'0101 }; // 8 bits in size means room for 8 flags
+
+    std::cout << "bit 2 is " << (static_cast<bool>(flags & mask2) ? "on\n" : "off\n");
+
+    std::cout << "bit 4 is " << (static_cast<bool>(flags & mask4) ? "on\n" : "off\n");
+
+    std::cout << "bit 5 is " << (static_cast<bool>(flags & mask5) ? "on\n" : "off\n");
+
+    flags &= static_cast<std::uint8_t>(~mask2); // turn off bit 2
+
+    flags &= static_cast<std::uint8_t>(~(mask4|mask5)); // turns off bits 4 and 5 at the same time
+
+    std::cout << "bit 2 is " << (static_cast<bool>(flags & mask2) ? "on\n" : "off\n");
+
+    std::cout << "bit 4 is " << (static_cast<bool>(flags & mask4) ? "on\n" : "off\n");
+
+    std::cout << "bit 5 is " << (static_cast<bool>(flags & mask5) ? "on\n" : "off\n");
+
+
+    // Setting a bit
+    // std::uint8_t flags{ 0b0000'0101 }; // 8 bits in size means room for 8 flags
+
+    // std::cout << "bit 1 is " << (static_cast<bool>(flags & mask1) ? "on\n" : "off\n");
+
+    // flags |= mask1; // turn on bit 1
+
+    // std::cout << "bit 1 is " << (static_cast<bool>(flags & mask1) ? "on\n" : "off\n");
+
+    // For checking whether a bit is on or off
+    // std::uint8_t flags{0b0000'0101}; // 8 bits in size means room for 8 flags
+    // std::cout << "Bit 0 is " << (static_cast<bool>(flags&mask0)?"on\n":"off\n");
+    // std::cout << "Bit 5 is " << (static_cast<bool>(flags&mask5)?"on\n":"off\n");
+
+    // std::cout << static_cast<int>(mask7) << '\n';
 
     // Exercise 2
-    std::bitset<4> bits1{0b0001};
-    std::cout << rotl(bits1) << '\n';
+    // std::bitset<4> bits1{0b0001};
+    // std::cout << rotl(bits1) << '\n';
 
-    std::bitset<4> bits2{0b1001};
-    std::cout << rotl(bits2) << '\n';
+    // std::bitset<4> bits2{0b1001};
+    // std::cout << rotl(bits2) << '\n';
 
     // Bitwise Assignment Operators // There is no bitwise NOT assignment operator. This is because the other bitwise operators are binary, but bitwise NOT is unary
     // std::bitset<4> bits{0b0100};
