@@ -15,21 +15,34 @@ std::bitset<4> rotl(std::bitset<4> bits)
 int main()
 {
 
-    [[maybe_unused]] constexpr std::uint8_t option_viewed{ 0x01 };
-    [[maybe_unused]] constexpr std::uint8_t option_edited{ 0x02 };
-    [[maybe_unused]] constexpr std::uint8_t option_favorited{ 0x04 };
-    [[maybe_unused]] constexpr std::uint8_t option_shared{ 0x08 };
-    [[maybe_unused]] constexpr std::uint8_t option_deleted{ 0x10 };
+    // converts input between 0 and 255 to binary
+	int x;
+	std::cout << "Enter a number between 0 and 255: ";
+	std::cin >> x;
 
-    std::uint8_t myArticleFlags{ option_favorited };
+	for (int pow = 128; pow > 0; pow /= 2) {
+		std::cout << (x / pow) % 2;
+		if (pow == 16) {
+			std::cout << '\'';
+		}
+	}
+	std::cout << '\n';
 
-    myArticleFlags |= option_viewed;
+    // [[maybe_unused]] constexpr std::uint8_t option_viewed{ 0x01 };
+    // [[maybe_unused]] constexpr std::uint8_t option_edited{ 0x02 };
+    // [[maybe_unused]] constexpr std::uint8_t option_favorited{ 0x04 };
+    // [[maybe_unused]] constexpr std::uint8_t option_shared{ 0x08 };
+    // [[maybe_unused]] constexpr std::uint8_t option_deleted{ 0x10 };
 
-    std::cout << std::bitset<8>{ myArticleFlags } << '\n';
+    // std::uint8_t myArticleFlags{ option_favorited };
 
-    myArticleFlags &= static_cast<std::uint8_t>(~option_favorited);
+    // myArticleFlags |= option_viewed;
 
-    std::cout << std::bitset<8>{ myArticleFlags } << '\n';
+    // std::cout << std::bitset<8>{ myArticleFlags } << '\n';
+
+    // myArticleFlags &= static_cast<std::uint8_t>(~option_favorited);
+
+    // std::cout << std::bitset<8>{ myArticleFlags } << '\n';
 
     // std::cout << "Has the article been deleted? " << std::boolalpha << static_cast<bool>((myArticleFlags & option_deleted) >> 4) << '\n';
 
