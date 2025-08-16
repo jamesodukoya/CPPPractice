@@ -57,3 +57,5 @@ int main()
 // It’s legal to declare namespace blocks in multiple locations (either across multiple files, or multiple places within the same file). All declarations within the namespace are considered part of the namespace.
 // If a variable is only used within a nested block, it should be defined inside that nested block
 // Avoid creating new blocks whose only purpose is to limit the scope of variables.
+
+//Introduction to global variables
