@@ -14,6 +14,16 @@
 //     }
 // }
 
+// Global variables
+int g_x;       // no explicit initializer (zero-initialized by default)
+int g_y {};    // value initialized (resulting in zero-initialization)
+int g_z { 1 }; // list initialized with specific value
+const int g_x;     // error: constant variables must be initialized
+constexpr int g_w; // error: constexpr variables must be initialized
+
+const int g_y { 1 };     // const global variable g_y, initialized with a value
+constexpr int g_z { 2 }; // constexpr global variable g_z, initialized with a value
+
 int main()
 {
 
@@ -58,4 +68,4 @@ int main()
 // If a variable is only used within a nested block, it should be defined inside that nested block
 // Avoid creating new blocks whose only purpose is to limit the scope of variables.
 
-//Introduction to global variables
+// Variables declared inside a namespace are also global variables. Prefer defining global variables inside a namespace rather than in the global namespace.
