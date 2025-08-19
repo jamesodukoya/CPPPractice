@@ -69,3 +69,6 @@ int main()
 // Avoid creating new blocks whose only purpose is to limit the scope of variables.
 
 // Variables declared inside a namespace are also global variables. Prefer defining global variables inside a namespace rather than in the global namespace.
+
+// Const and constexpr global variables have internal linkage by default (and thus don’t need the static keyword -- if it is used, it will be ignored).
+
