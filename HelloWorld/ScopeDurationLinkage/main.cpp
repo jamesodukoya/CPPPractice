@@ -72,3 +72,7 @@ int main()
 
 // Const and constexpr global variables have internal linkage by default (and thus don’t need the static keyword -- if it is used, it will be ignored).
 
+// Functions default to external linkage (which we’ll cover in the next lesson), but can be set to internal linkage via the static keyword:
+
+// In modern C++, use of the static keyword for giving identifiers internal linkage is falling out of favor. Unnamed namespaces can give internal linkage to a wider range of identifiers (e.g. type identifiers), and they are better suited for giving many identifiers internal linkage.
+
