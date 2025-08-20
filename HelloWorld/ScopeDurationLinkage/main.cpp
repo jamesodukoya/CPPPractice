@@ -101,3 +101,20 @@ int main()
 
 // Use local variables instead of global variables whenever possible.
 
+// Inline expansion
+// int main()
+// {
+//     std::cout << ((5 < 6) ? 5 : 6) << '\n';
+//     std::cout << ((3 < 2) ? 3 : 2) << '\n';
+//     return 0;
+// }
+
+// Inline expansion is best suited to simple, short functions (e.g. no more than a few statements), especially cases where a single function call can be executed more than once (e.g. function calls inside a loop).
+
+// Modern optimizing compilers make the decision about when functions should be expanded inline. Do not use the inline keyword to request inline expansion for your functions.
+
+// In modern C++, the term inline has evolved to mean “multiple definitions are allowed”. Thus, an inline function is one that is allowed to be defined in multiple translation units (without violating the ODR). Inline functions are typically defined in header files, where they can be #included into the top of any code file that needs to see the full definition of the identifier. This ensures that all inline definitions for an identifier are identical.
+
+// Avoid the use of the inline keyword unless you have a specific, compelling reason to do so (e.g. you’re defining those functions or variables in a header file).
+
+// C++17 introduces inline variables, which are variables that are allowed to be defined in multiple files.
