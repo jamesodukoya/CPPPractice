@@ -83,3 +83,21 @@ int main()
 // extern const int g_y { 3 }; // const globals can be defined as extern, making them external
 // extern constexpr int g_z { 3 }; // constexpr globals can be defined as extern, making them external (but this is pretty useless, see the warning in the next section)
 
+// For variables, creating a forward declaration is also done via the extern keyword (with no initialization value).
+
+// extern int g_x;       // this extern is a forward declaration of a variable named g_x that is defined somewhere else
+// extern const int g_y; // this extern is a forward declaration of a const variable named g_y that is defined somewhere else
+
+// If you want to define an uninitialized non-const global variable, do not use the extern keyword, otherwise C++ will think you’re trying to make a forward declaration for the variable.
+
+// Although constexpr variables can be given external linkage via the extern keyword, they can not be forward declared as constexpr. This is because the compiler needs to know the value of the constexpr variable (at compile time). If that value is defined in some other file, the compiler has no visibility on what value was defined in that other file.
+
+// However, you can forward declare a constexpr variable as const, which the compiler will treat as a runtime const. This isn’t particularly useful.
+
+// Only use extern for global variable forward declarations or const global variable definitions.
+// Do not use extern for non-const global variable definitions (they are implicitly extern).
+
+// By far the biggest reason non-const global variables are dangerous is because their values can be changed by any function that is called, and there is no easy way for the programmer to know that this will happen.
+
+// Use local variables instead of global variables whenever possible.
+
