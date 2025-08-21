@@ -124,3 +124,10 @@ int main()
 // Inline variables have external linkage by default
 
 // Best modern (C++17) approach for adding global constants in your program is to add a header file with a namespace including inline constexpr variables
+
+// Static local variables that are zero-initialized or have a constexpr initializer can be initialized at program start. Otherwise (without initialiazers or with non-constexpr initializer), they're zero initialized at program start. If they have a non-constexpr initializer, they are reinitialized the first definition is encountered. Subsequent definitions are then skipped.
+
+// Static local variables are used when we need a local variable to remember its value across function calls (such as for ID generation). It's best to initialize them. Also, it's common to add an "s_" prefix to their identifiers, e.g. "s_value". They have the benefits of a global variable in terms of lifetime/duration but remain inaccessible outside of the local scope.
+
+// Static local variables can be made const (or constexpr). One good use for a const static local variable is when you have a function that needs to use a const value, but creating or initializing the object is expensive (e.g. you need to read the value from a database). If you used a normal local variable, the variable would be created and initialized every time the function was executed. With a const/constexpr static local variable, you can create and initialize the expensive object once, and then reuse it whenever the function is called.
+
