@@ -118,3 +118,9 @@ int main()
 // Avoid the use of the inline keyword unless you have a specific, compelling reason to do so (e.g. you’re defining those functions or variables in a header file).
 
 // C++17 introduces inline variables, which are variables that are allowed to be defined in multiple files.
+
+// In the past, it was okay to add universal constants in a namespace in a header file and include the header file wherever the constants are needed. But in large projects, this can take a lot of memory and recompile time since the variables are added to each file, even when #ifndef...
+
+// Inline variables have external linkage by default
+
+// Best modern (C++17) approach for adding global constants in your program is to add a header file with a namespace including inline constexpr variables
