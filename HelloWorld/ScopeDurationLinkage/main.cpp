@@ -134,3 +134,41 @@ int main()
 // Const static local variables are generally okay to use. Non-const static local variables should generally be avoided. If you do use them, ensure the variable never needs to be reset, and isn’t used to alter program flow.
 
 // Table: https://www.learncpp.com/cpp-tutorial/scope-duration-and-linkage-summary/
+
+// int main()
+// {
+//    using std::cout; // this using declaration tells the compiler that cout should resolve to std::cout
+//    cout << "Hello world!\n"; // so no std:: prefix is needed here!
+
+//    return 0;
+// } // the using declaration expires at the end of the current scope
+
+// The using-declaration is active from the point of declaration to the end of the scope in which it is declared.
+
+// Using declaration: using std::cout;
+// Using directive: using namespace std;
+
+// Do not use using-statements in header files, or before an #include directive
+
+// The only place it is truly safe to use using-statements is in our source (.cpp) files, after all the #includes.
+
+// Once a using-statement has been declared, there’s no way to cancel or replace it with a different using-statement within the scope in which it was declared. The best you can do is intentionally limit the scope of the using-statement from the outset using the block scoping rules.
+
+// int main()
+// {
+//     {
+//         using namespace Foo;
+//         // calls to Foo:: stuff here
+//     } // using namespace Foo expires
+
+//     {
+//         using namespace Goo;
+//         // calls to Goo:: stuff here
+//     } // using namespace Goo expires
+
+//     return 0;
+// }
+
+// Prefer explicit namespace qualifiers over using-statements.
+
+// Avoid using-directives altogether (except using namespace std::literals to access the s and sv literal suffixes). Using-declarations are okay in .cpp files, after the #include directives. Do not use using-statements in header files (especially in the global namespace of header files).
