@@ -3,7 +3,7 @@
 
 namespace Constants
 {
-    inline constexpr int macClassSize{35};
+    inline constexpr int maxClassSize{35};
 }
 
 #endif

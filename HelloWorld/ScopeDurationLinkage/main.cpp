@@ -1,4 +1,5 @@
 #include <iostream>
+#include "constants.h"
 // #include "foo.h" // for Foo::printHelloThere()
 // #include "add.h" // for BasicMath::add()
 // #include "circle.h"
@@ -14,38 +15,62 @@
 //     }
 // }
 
-// Global variables
-int g_x;       // no explicit initializer (zero-initialized by default)
-int g_y {};    // value initialized (resulting in zero-initialization)
-int g_z { 1 }; // list initialized with specific value
-const int g_x;     // error: constant variables must be initialized
-constexpr int g_w; // error: constexpr variables must be initialized
+// // Global variables
+// int g_x;       // no explicit initializer (zero-initialized by default)
+// int g_y {};    // value initialized (resulting in zero-initialization)
+// int g_z { 1 }; // list initialized with specific value
+// const int g_x;     // error: constant variables must be initialized
+// constexpr int g_w; // error: constexpr variables must be initialized
 
-const int g_y { 1 };     // const global variable g_y, initialized with a value
-constexpr int g_z { 2 }; // constexpr global variable g_z, initialized with a value
+// const int g_y { 1 };     // const global variable g_y, initialized with a value
+// constexpr int g_z { 2 }; // constexpr global variable g_z, initialized with a value
+
+int accumulate(int x)
+{
+	static int sum{0};
+	sum+=x;
+	return sum;
+}
 
 int main()
 {
 
-	std::cout << "Enter an integer: ";
-	int smaller{};
-	std::cin >> smaller;
+	using std::cout;
+	cout << accumulate(4) << '\n'; // prints 4
+    cout << accumulate(3) << '\n'; // prints 7
+    cout << accumulate(2) << '\n'; // prints 9
+    cout << accumulate(1) << '\n'; // prints 10
 
-	std::cout << "Enter a larger integer: ";
-	int larger{};
-	std::cin >> larger;
 
-	if (smaller > larger)
-	{
-		std::cout << "Swapping the values\n";
-		int temp{};
-		temp = smaller;
-		smaller = larger;
-		larger = temp;
-	} // temp dies here
+	// std::cout << "How many students are in your class? ";
+	// int students{};
+	// std::cin >> students;
 
-	std::cout << "The smaller value is " << smaller << '\n';
-	std::cout << "The larger value is " << larger << '\n';
+
+	// if (students > Constants::maxClassSize)
+	// 	std::cout << "There are too many students in this class\n";
+	// else
+	// 	std::cout << "This class isn't too large\n";
+
+	// std::cout << "Enter an integer: ";
+	// int smaller{};
+	// std::cin >> smaller;
+
+	// std::cout << "Enter a larger integer: ";
+	// int larger{};
+	// std::cin >> larger;
+
+	// if (smaller > larger)
+	// {
+	// 	std::cout << "Swapping the values\n";
+	// 	int temp{};
+	// 	temp = smaller;
+	// 	smaller = larger;
+	// 	larger = temp;
+	// } // temp dies here
+
+	// std::cout << "The smaller value is " << smaller << '\n';
+	// std::cout << "The larger value is " << larger << '\n';
 
 	// namespace Active = Foo::Goo; // active now refers to Foo::Goo
 
@@ -172,3 +197,9 @@ int main()
 // Prefer explicit namespace qualifiers over using-statements.
 
 // Avoid using-directives altogether (except using namespace std::literals to access the s and sv literal suffixes). Using-declarations are okay in .cpp files, after the #include directives. Do not use using-statements in header files (especially in the global namespace of header files).
+
+// All content declared in an unnamed namespace is treated as if it is part of the parent namespace. An unnamed namespace is used to implement internal linkage on functions (much like the static keyword). The content of an unnamed namespace can’t be seen outside of the file in which the unnamed namespace is defined.
+
+// Unnamed namespaces should generally not be used in header files. Prefer unnamed namespaces when you have content you want to keep local to a translation unit. Avoid unnamed namespaces in header files.
+
+// An inline namespace is a namespace that is typically used to version content. Much like an unnamed namespace, anything declared inside an inline namespace is considered part of the parent namespace. However, unlike unnamed namespaces, inline namespaces don’t affect linkage.
