@@ -36,3 +36,8 @@ int main()
 //     else
 //         PASS;
 // }
+
+// To use a constexpr-if-statement, we add the constexpr keyword after the if. Favor constexpr if statements over non-constexpr if statements when the conditional is a constant expression. For optimization purposes, modern compilers will generally treat non-constexpr if-statements that have constexpr conditionals as if they were constexpr-if-statements. However, they are not required to do so.
+
+
+
