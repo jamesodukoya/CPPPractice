@@ -4,6 +4,7 @@
 // #include "add.h" // for BasicMath::add()
 // #include "circle.h"
 // #include "growth.h"
+#include <limits>
 
 // int Foo::doSomething(int x, int y);
 
@@ -35,11 +36,14 @@ int accumulate(int x)
 int main()
 {
 
-	using std::cout;
-	cout << accumulate(4) << '\n'; // prints 4
-    cout << accumulate(3) << '\n'; // prints 7
-    cout << accumulate(2) << '\n'; // prints 9
-    cout << accumulate(1) << '\n'; // prints 10
+	unsigned int i = std::numeric_limits<unsigned int>::max();
+  std::cout << ++i;
+
+	// using std::cout;
+	// cout << accumulate(4) << '\n'; // prints 4
+    // cout << accumulate(3) << '\n'; // prints 7
+    // cout << accumulate(2) << '\n'; // prints 9
+    // cout << accumulate(1) << '\n'; // prints 10
 
 
 	// std::cout << "How many students are in your class? ";
