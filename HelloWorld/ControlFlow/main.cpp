@@ -24,3 +24,15 @@ int main()
 //     return 0;
 // }
 
+// Be careful not to “terminate” your if-statement with a semicolon, otherwise the statement(s) you wanted to execute conditionally will execute unconditionally instead (even if they are inside a block).
+
+// You can use PASS as a null statement like so:
+// #define PASS
+
+// void foo(int x, int y)
+// {
+//     if (x > y)
+//         PASS;
+//     else
+//         PASS;
+// }
