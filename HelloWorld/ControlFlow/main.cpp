@@ -95,3 +95,29 @@ int main()
 // Determining whether a value is within a range (e.g. x >= 5 && x <= 10)
 // The expression has a type that switch doesn’t support (e.g. d == 4.0).
 // The expression evaluates to a bool.
+
+// Once the statements underneath a case or default label have started executing, they will overflow (fallthrough) into subsequent cases. break or return statements are typically used to prevent this.
+
+// Attributes are a modern C++ feature that allows the programmer to provide the compiler with some additional data about the code. To specify an attribute, the attribute name is placed between double brackets.
+
+// The [[fallthrough]] attribute modifies a null statement to indicate that fallthrough is intentional (and no warnings should be triggered):
+
+// int main()
+// {
+//     switch (2)
+//     {
+//     case 1:
+//         std::cout << 1 << '\n';
+//         break;
+//     case 2:
+//         std::cout << 2 << '\n'; // Execution begins here
+//         [[fallthrough]]; // intentional fallthrough -- note the semicolon to indicate the null statement
+//     case 3:
+//         std::cout << 3 << '\n'; // This is also executed
+//         break;
+//     }
+
+//     return 0;
+// }
+
+// With switch statements, the statements after labels are all scoped to the switch block. No implicit blocks are created.
