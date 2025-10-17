@@ -13,9 +13,10 @@
                 "-Wextra",
                 "-Wconversion",
                 "-Wsign-conversion",
-                "-Werror", // Treat all warnings as errors
+                // "-Werror", // Treat all warnings as errors
                 "-std=c++23", // Set C++ standard
-                "${fileDirname}/*.cpp",
+                // "${fileDirname}/*.cpp",
+                "${file}",
                 "-o",
                 // "-I./source/includes",
                 "${fileDirname}/${fileBasenameNoExtension}"

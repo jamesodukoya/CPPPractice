@@ -1,5 +1,5 @@
 {
-    "C_Cpp.errorSquiggles": "disabled",
+    "C_Cpp.errorSquiggles": "enabled",
     "files.associations": {
         "iostream": "cpp",
         "array": "cpp",
@@ -57,5 +57,5 @@
         "variant": "cpp"
     },
     "editor.defaultFormatter": "ms-vscode.cpptools",
-    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, BreakBeforeBraces: Attach }",
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, BreakBeforeBraces: Attach, IndentWidth: 4, TabWidth: 4, UseTab: Never }",
 }
