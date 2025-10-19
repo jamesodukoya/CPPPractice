@@ -48,7 +48,7 @@ int main() {
     auto last{vec2.end()};
 
     std::cout << "\nUsing Begin and End Iterators: \n";
-    for (first; first != last; ++first) {
+    for (; first != last; ++first) {
         std::cout << *first << '\n';
     }
 
