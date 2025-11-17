@@ -12,14 +12,14 @@ int main() {
     auto nanoseconds = std::chrono::nanoseconds(500);
 
     // format: year / month /day
-    auto d1 = 2020y / 1 / 15;
-    auto d2 = 2020y / std::chrono::January / 15;
-    // format: day / month / year
-    auto d3 = 15d / 1 / 2020;
-    auto d4 = 15d / std::chrono::January / 2020;
-    // format: month / day / year
-    auto d5 = 1 / 15d / 2020;
-    auto d6 = std::chrono::January / 15 / 2020;
+    // auto d1 = 2020y / 1 / 15;
+    // auto d2 = 2020y / std::chrono::January / 15;
+    // // format: day / month / year
+    // auto d3 = 15d / 1 / 2020;
+    // auto d4 = 15d / std::chrono::January / 2020;
+    // // format: month / day / year
+    // auto d5 = 1 / 15d / 2020;
+    // auto d6 = std::chrono::January / 15 / 2020;
 
     auto time = std::chrono::zoned_time{std::chrono::current_zone(), std::chrono::system_clock::now()};
     std::cout << time << '\n';

@@ -19,7 +19,8 @@
                 "${file}",
                 "-o",
                 // "-I./source/includes",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-ltbb"
             ],
             "options": {
                 "cwd": "${fileDirname}"
