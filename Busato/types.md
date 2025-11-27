@@ -2,7 +2,7 @@
 References are an alternative name of an existing object. They provide direct access to the original data and are great for parameter passing and variable manipulation.
 - Lvalue references (&): Refer to named variables and persist beyond a single expression
 - Rvalue references (&&): Refer to temporary objects, enable move semantics
-```
+```cpp
 int a = 5;
 int& r_a = a;        // lvalue reference
 int&& r_b = 10;      // rvalue reference to temporary
@@ -11,7 +11,7 @@ int&& r_b = 10;      // rvalue reference to temporary
 - Cannot be reassigned. Once initialized, it always refers to the same object
 - Not objects themselves. Unlike pointers, references are not distinct memory locations
 
-```
+```cpp
 int x = 10, y = 20;
 int& ref = x;      // must initialize. cout << ref outputs 10
 // ref = y;        // this modifies x to 20, doesn't rebind ref
@@ -32,7 +32,7 @@ Use pointers when:
 
 ## nullptr (type: std::nullptr_t)
 Introduced in C++11, represents a pointer that doesn't point to any object. Reduces the ambiguity of representing null pointers with NULL which the compiler essentially interprets as int '0'. This is particularly important in function overloading.
-```
+```cpp
 void func(int x);      
 void func(char* ptr);  
 func(NULL);  // Ambiguous! Which function should be called?
