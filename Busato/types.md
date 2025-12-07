@@ -38,3 +38,4 @@ void func(char* ptr);
 func(NULL);  // Ambiguous! Which function should be called?
 func(nullptr);  // Clear: calls func(char*)
 ```
+
